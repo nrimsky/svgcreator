@@ -32,7 +32,7 @@ def make_svg(img_url, exact, write, print_img_url):
         print(img_url)
     img = url_to_image(img_url)
     blurred_img = cv.blur(img, ksize=(3, 3))
-    edges = cv.Canny(blurred_img, 100, 200)
+    edges = cv.Canny(blurred_img, 0, 40)
     contours, hierarchy = cv.findContours(edges, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
     svg = ""
     svg += '<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"> <path fill="none" stroke="black" d="'
