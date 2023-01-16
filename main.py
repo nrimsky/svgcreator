@@ -11,19 +11,15 @@ POINT_DOWNSAMPLE = 8
 
 def url_to_image(url, readFlag=cv.IMREAD_COLOR):
     img_data = requests.get(url).content
-    with open('image.png', 'wb') as handler:
+    with open("image.png", "wb") as handler:
         handler.write(img_data)
-    return cv.imread('image.png', readFlag)
+    return cv.imread("image.png", readFlag)
 
 
 def gen_image(prompt):
     openai.api_key = os.getenv("OPEN_AI_KEY")
-    response = openai.Image.create(
-        prompt=prompt,
-        n=1,
-        size="256x256"
-    )
-    image_url = response['data'][0]['url']
+    response = openai.Image.create(prompt=prompt, n=1, size="256x256")
+    image_url = response["data"][0]["url"]
     return image_url
 
 
@@ -63,6 +59,11 @@ def get_img(prompt, print_img_url=False, write=False, exact=False):
     return make_svg(url, exact=exact, print_img_url=print_img_url, write=write)
 
 
-if __name__ == '__main__':
+def main():
     prompt = input("Prompt >> ").strip()
+    prompt += ", on a white background, uncropped, white padding around"  # Works much better for edge detection
     get_img(prompt, print_img_url=True, write=True)
+
+
+if __name__ == "__main__":
+    main()
