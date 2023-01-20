@@ -21,7 +21,7 @@ AI image (`png`):
 ![AI Image](examples/example.png)
 
 Vector art (`svg`):
-![Vector art](example/example.svg)
+![Vector art](examples/example.svg)
 
 ## Experimentation in jupyter
 
