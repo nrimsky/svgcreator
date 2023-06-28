@@ -20,11 +20,6 @@ Prompt: "Cat and Rabbit dancing"
 AI image (`png`):
 ![AI Image](examples/image.png)
 
+
 Vector art (`svg`):
 ![Vector art](examples/path.svg)
-
-## Experimentation in jupyter
-
-```bash
-jupyter notebook
-```
