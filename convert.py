@@ -4,16 +4,17 @@ from skimage import measure
 import svgwrite
 
 
-def png_to_svg(input_path, output_path, threshold=128, smooth_factor=1.5):
+def png_to_svg(input_path, output_path, smooth_factor=1.2):
     # Open the image file
     img = cv2.imread(input_path, 0)
     colored_img = cv2.imread(input_path)
-    
-    # Convert the image to binary
-    _, img = cv2.threshold(img, threshold, 255, cv2.THRESH_BINARY)
+
+    # Adaptive thresholding
+    adaptive_thresh = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_MEAN_C,
+                                            cv2.THRESH_BINARY, 15, 15, 5)
 
     # Find contours in the binary image
-    contours = measure.find_contours(img, 0.8)
+    contours = measure.find_contours(adaptive_thresh, 1)
 
     # Initialize SVG canvas
     dwg = svgwrite.Drawing(output_path, profile='full')

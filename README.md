@@ -15,7 +15,7 @@ python main.py
 
 ## Examples
 
-Prompt: "Ginger Cat"
+Prompt: "Happy elephant dancing"
 
 AI image (`png`):
 ![AI Image](examples/image.png)

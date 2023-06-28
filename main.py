@@ -33,7 +33,7 @@ def get_img(prompt):
 
 def main():
     prompt = input("Prompt >> ").strip()
-    prompt += " (Professionally designed simple clear colorful vector illustration asset, high resolution, clear black outline, constant line width, no text)"
+    prompt += " (clear line drawing, colored, black outline, no text, clip art style, suitable for modern websites)"
     get_img(prompt)
 
 
