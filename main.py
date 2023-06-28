@@ -15,7 +15,7 @@ def url_to_image(url):
 
 def gen_image(prompt):
     openai.api_key = os.getenv("OPEN_AI_KEY")
-    response = openai.Image.create(prompt=prompt, n=1, size="256x256")
+    response = openai.Image.create_edit(prompt=prompt, n=1, size="256x256", mask=open("transparent_mask.png", "rb"), image=open("white_mask.png", "rb"))
     image_url = response["data"][0]["url"]
     return image_url
 
@@ -33,7 +33,7 @@ def get_img(prompt):
 
 def main():
     prompt = input("Prompt >> ").strip()
-    prompt += " (Simple Clear Clip Art Style Logo, Clear Black Outline, White Background, Colorful, Simple to Vectorize)"
+    prompt += " (Professionally designed simple clear colorful vector illustration asset, high resolution, clear black outline, constant line width, no text)"
     get_img(prompt)
 
 

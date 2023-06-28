@@ -16,7 +16,7 @@ def png_to_svg(input_path, output_path, threshold=128, smooth_factor=1.5):
     contours = measure.find_contours(img, 0.8)
 
     # Initialize SVG canvas
-    dwg = svgwrite.Drawing(output_path, profile='tiny')
+    dwg = svgwrite.Drawing(output_path, profile='full')
 
     processed = set()
 
